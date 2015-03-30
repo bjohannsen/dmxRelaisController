@@ -30,38 +30,38 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-AVRtest.lss \
+DMXRelaisController.lss \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: AVRtest.elf secondary-outputs
+all: DMXRelaisController.elf secondary-outputs
 
 # Tool invocations
-AVRtest.elf: $(OBJS) $(USER_OBJS)
+DMXRelaisController.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,AVRtest.map -mmcu=attiny2313 -o"AVRtest.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,DMXRelaisController.map -mmcu=attiny2313 -o"DMXRelaisController.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-AVRtest.lss: AVRtest.elf
+DMXRelaisController.lss: DMXRelaisController.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S AVRtest.elf  >"AVRtest.lss"
+	-avr-objdump -h -S DMXRelaisController.elf  >"DMXRelaisController.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: AVRtest.elf
+sizedummy: DMXRelaisController.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=attiny2313 AVRtest.elf
+	-avr-size --format=avr --mcu=attiny2313 DMXRelaisController.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(ELFS)$(LSS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) AVRtest.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(ELFS)$(LSS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) DMXRelaisController.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(SIZEDUMMY)

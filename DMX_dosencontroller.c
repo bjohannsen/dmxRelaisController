@@ -235,12 +235,12 @@ void init_timer()
 	TIMSK |= (1 << OCIE1A);
 }
 
-inline void init_gpio() {
+void init_gpio() {
 	DDRB |= (R_MASK);
 	DDRD |= (LED_PIN);
 }
 
-inline void init_relais()
+void init_relais()
 {
 	uint8_t i = 0;
 	_relais_data[R_P1_RED] = (relais_data_t) {0, 0, 0, R1_PIN};
@@ -251,7 +251,7 @@ inline void init_relais()
 	}
 }
 
-inline void init_dmx()
+void init_dmx()
 {
 	uint8_t i = 0;
 	for (i = 0; i < DMX_NUM_CHANNELS; i++)
@@ -261,7 +261,7 @@ inline void init_dmx()
 	}
 }
 
-inline void standalone_fallback()
+void standalone_fallback()
 {
 	_relais_data[R_P1_RED].pwm = PWM_FULL;
 	_relais_data[R_P1_RED].strobe = STROBE_OFF;
