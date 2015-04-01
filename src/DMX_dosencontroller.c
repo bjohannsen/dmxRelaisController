@@ -1,3 +1,8 @@
+/*
+ * DMX_dosencontroller.c
+ *
+ * Author: @dreimalbe
+ */
 #include "DMX_dosencontroller.h"
 
 #define DMX_CHANNEL 45

@@ -1,3 +1,8 @@
+/*
+ * DMX_dosencontroller.h
+ *
+ * Author: @dreimalbe
+ */
 #include "avr/io.h"
 #include <stdio.h>
 #include <string.h>
